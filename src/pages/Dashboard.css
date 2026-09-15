@@ -1,0 +1,247 @@
+.dashboard-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Welcome Section */
+.welcome-section {
+  background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+  color: white;
+  padding: 32px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.welcome-text h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.welcome-text p {
+  opacity: 0.9;
+  font-size: 14px;
+  max-width: 500px;
+}
+
+/* Stats Section */
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-icon {
+  font-size: 36px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.stat-blue .stat-icon { background: #e3f2fd; }
+.stat-green .stat-icon { background: #e8f5e9; }
+.stat-orange .stat-icon { background: #fff3e0; }
+.stat-purple .stat-icon { background: #f3e5f5; }
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-title {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Contracts Section */
+.contracts-section {
+  margin-bottom: 32px;
+}
+
+.contracts-section h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.contracts-list {
+  display: grid;
+  gap: 16px;
+}
+
+.contract-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-right: 4px solid #0078d4;
+}
+
+.contract-card.pending {
+  border-right-color: #ff9800;
+}
+
+.contract-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.contract-status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.contract-status.active {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.contract-status.pending {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.contract-type {
+  font-size: 14px;
+  color: #666;
+}
+
+.contract-card h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.contract-address {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.contract-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+.contract-details span {
+  background: #f5f5f5;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* Featured Section */
+.featured-section, .recent-section {
+  margin-bottom: 32px;
+}
+
+.featured-section h3, .recent-section h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image-container .badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.featured-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #ffd700;
+  color: #333;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.card-address {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.card-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: #888;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .welcome-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  
+  .dashboard-content {
+    padding: 16px;
+  }
+  
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contract-details {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "amlak-neshan",
+  "private": true,
+  "version": "1.0.0",
+  "description": "سامانه املاک مشهد - Real Estate Platform for Mashhad",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "cap:init": "npx cap init 'املاک نشان' com.amlakneshan.app --web-dir=dist",
+    "cap:add": "npx cap add android",
+    "cap:sync": "npx cap sync android",
+    "cap:build": "npm run build && npm run cap:sync && cd android && ./gradlew assembleDebug",
+    "build:apk": "npm run build && npx cap sync android && cd android && ./gradlew assembleDebug"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0",
+    "leaflet": "^1.9.4",
+    "react-leaflet": "^4.2.1",
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/android": "^6.1.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.0",
+    "@capacitor/cli": "^6.1.2"
+  }
+}
