@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f7f4" />
+  <title>خانه‌نما | جست‌وجوی هوشمند ملک</title>
+  <meta name="description" content="خانه‌نما؛ جست‌وجو و مقایسه‌ی خانه‌های خرید و اجاره در ایران." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="notice"><span class="notice-dot"></span> نسخه‌ی نمایشی · اطلاعات و قیمت‌ها نمونه هستند <button id="noticeClose" aria-label="بستن">×</button></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="خانه‌نما، صفحه اصلی"><span class="brand-mark"><svg viewBox="0 0 32 32"><path d="M4 15.2 16 5l12 10.2v12.1a1.7 1.7 0 0 1-1.7 1.7H5.7A1.7 1.7 0 0 1 4 27.3z"/><path d="M12.1 29V18h7.8v11"/></svg></span><span>خانه‌نما<span class="brand-dot">.</span></span></a>
+    <nav class="main-nav"><a class="active" href="#explore">خرید و اجاره</a><a href="#explore" data-mode="buy">خرید خانه</a><a href="#explore" data-mode="rent">اجاره خانه</a></nav>
+    <div class="nav-actions"><button class="icon-btn saved-nav" id="savedOpen" aria-label="علاقه‌مندی‌ها"><svg viewBox="0 0 24 24"><path d="M20.8 8.8c0 4.2-8.8 10-8.8 10s-8.8-5.8-8.8-10A4.8 4.8 0 0 1 12 6a4.8 4.8 0 0 1 8.8 2.8Z"/></svg><span>علاقه‌مندی‌ها</span><b id="savedCount" class="saved-count">0</b></button><button class="outline-btn" id="signinBtn">ورود / ثبت‌نام</button><button class="primary-btn" id="postBtn"><span>＋</span> ثبت آگهی</button></div>
+    <button class="mobile-menu" id="mobileMenu" aria-label="باز کردن منو">☰</button>
+  </header>
+
+  <main id="explore">
+    <section class="intro">
+      <div><div class="eyebrow"><span></span> خانه‌ی بعدی‌ات نزدیک‌تر از چیزی‌ست که فکر می‌کنی</div><h1>جای درستت را <em>پیدا کن.</em></h1><p>محله‌ها را بگرد، قیمت‌ها را مقایسه کن و با خیال راحت تصمیم بگیر.</p></div>
+      <div class="intro-stat"><div class="stat-icon">⌖</div><div><strong>از محله شروع کن</strong><small>تهران و شهرهای ایران</small></div></div>
+    </section>
+
+    <section class="search-panel" aria-label="جست‌وجوی ملک">
+      <div class="search-tabs"><button class="search-tab selected" data-mode="buy">خرید</button><button class="search-tab" data-mode="rent">اجاره</button><span class="tab-separator"></span><span class="search-hint">جست‌وجو بر اساس شهر، محله یا نشانی</span></div>
+      <div class="search-row"><div class="search-input-wrap"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="locationSearch" type="search" placeholder="مثلاً: تهران، سعادت‌آباد" autocomplete="off"/><button id="clearSearch" class="clear-search" aria-label="پاک کردن">×</button><div id="suggestions" class="suggestions hidden"></div></div><button class="filter-trigger" id="filterOpen"><svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10m-7 6h4"/><circle cx="8" cy="6" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="12" cy="18" r="1.5"/></svg> فیلترها <span class="filter-count hidden" id="filterCount">0</span></button><button class="search-btn" id="searchBtn"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><span>جست‌وجو</span></button></div>
+      <div class="quick-filters"><button class="quick-chip" data-filter="kind" data-value="آپارتمان">آپارتمان <span>⌄</span></button><button class="quick-chip" data-filter="beds" data-value="2">۲ خواب به بالا <span>⌄</span></button><button class="quick-chip" data-filter="price">حداکثر قیمت <span>⌄</span></button><button class="quick-chip" id="mapToggle"><svg viewBox="0 0 24 24"><path d="M3 6.5 8.5 4l7 2.5L21 4v13.5L15.5 20l-7-2.5L3 20zM8.5 4v13.5m7-11V20"/></svg> نقشه</button></div>
+    </section>
+
+    <div class="results-top"><div><h2 id="resultsTitle">خانه‌های پیشنهادی در تهران</h2><p><span id="resultCount">۶</span> نتیجه <span class="subtle"> · به‌روزرسانی امروز</span></p></div><div class="sort-wrap"><span>مرتب‌سازی:</span><select id="sortSelect" aria-label="مرتب‌سازی"><option value="recommended">پیشنهادی</option><option value="low">ارزان‌ترین</option><option value="high">گران‌ترین</option><option value="new">جدیدترین</option></select></div></div>
+    <div class="active-filters hidden" id="activeFilters"></div>
+
+    <section class="results-layout">
+      <div class="listings-column"><div class="listing-grid" id="listingGrid"></div><div id="emptyState" class="empty-state hidden"><div class="empty-illustration">⌕</div><h3>موردی پیدا نکردیم</h3><p>فیلترها را تغییر بده یا محله‌ی دیگری را امتحان کن.</p><button class="outline-btn" id="resetFilters">پاک کردن فیلترها</button></div><div class="load-more-row"><span>همه‌ی موارد این جست‌وجو را دیدی</span><span class="load-line"></span><span class="mini-home">⌂</span></div></div>
+      <aside class="map-panel" id="mapPanel"><div class="map-topline"><div><strong>تهران، ایران</strong><span><i></i> نقشه‌ی نمایشی</span></div><button id="mapExpand" aria-label="بزرگنمایی نقشه">⛶</button></div><div class="map-canvas" id="mapCanvas" role="img" aria-label="نقشه‌ی نمایشی مناطق تهران"><svg class="city-map" viewBox="0 0 700 790" preserveAspectRatio="xMidYMid slice"><defs><pattern id="blocks" width="74" height="68" patternUnits="userSpaceOnUse"><rect x="6" y="6" width="25" height="22" rx="3" fill="#e9e9df"/><rect x="37" y="6" width="31" height="22" rx="3" fill="#e9e9df"/><rect x="6" y="35" width="28" height="27" rx="3" fill="#ecece3"/><rect x="40" y="35" width="28" height="27" rx="3" fill="#ecece3"/></pattern></defs><rect width="700" height="790" fill="#f0f0e9"/><rect width="700" height="790" fill="url(#blocks)" opacity=".78"/><path d="M-20 194 C130 250 184 116 307 172S496 261 740 177" fill="none" stroke="#d6e8df" stroke-width="42"/><path d="M-30 194 C130 250 184 116 307 172S496 261 740 177" fill="none" stroke="#c1d9cd" stroke-width="2"/><path d="M84 -30 C142 161 143 310 219 420S308 633 321 830" fill="none" stroke="#d8d7cd" stroke-width="15"/><path d="M84 -30 C142 161 143 310 219 420S308 633 321 830" fill="none" stroke="#fff" stroke-width="8"/><path d="M-30 525 C130 490 272 458 372 461S543 520 750 455" fill="none" stroke="#d8d7cd" stroke-width="17"/><path d="M-30 525 C130 490 272 458 372 461S543 520 750 455" fill="none" stroke="#fff" stroke-width="9"/><path d="M480 -10 C441 145 452 280 522 390S589 612 730 689" fill="none" stroke="#d8d7cd" stroke-width="12"/><path d="M480 -10 C441 145 452 280 522 390S589 612 730 689" fill="none" stroke="#fff" stroke-width="6"/><path d="M0 336 C113 323 165 355 274 329S477 294 699 339" fill="none" stroke="#fff" stroke-width="5"/><path d="M360 0 C337 151 355 271 343 391S385 564 365 790" fill="none" stroke="#fff" stroke-width="4"/><path d="M564 64c31 9 48 46 38 75-7 20-29 30-49 23-22-7-32-32-22-57 7-19 17-34 33-41Z" fill="#d9e8d1"/><path d="M109 640c34-19 71-11 80 17 9 26-8 57-39 62-27 5-52-12-53-37-1-17 1-31 12-42Z" fill="#dce9d5"/><text x="548" y="175" class="map-label">تجریش</text><text x="380" y="289" class="map-label">ولنجک</text><text x="180" y="354" class="map-label">سعادت‌آباد</text><text x="420" y="421" class="map-label">الهیه</text><text x="280" y="522" class="map-label">مرکز تهران</text><text x="498" y="610" class="map-label">پاسداران</text><text x="126" y="691" class="map-label">یوسف‌آباد</text></svg><div id="mapMarkers" class="map-markers"></div><div class="map-zoom"><button id="zoomIn" aria-label="بزرگنمایی">＋</button><button id="zoomOut" aria-label="کوچکنمایی">−</button></div><div class="map-attribution">نمای شماتیک شهر · جایگاه‌ها تقریبی</div></div><button class="map-bottom-btn" id="showMapListings"><span>⌖</span> جست‌وجو در این محدوده</button></aside>
+    </section>
+
+    <section class="trust-strip"><div class="trust-icon">✓</div><div><strong>شفاف‌تر انتخاب کن</strong><p>قیمت، متراژ و ویژگی‌های هر ملک را کنار هم ببین.</p></div><div class="trust-separator"></div><div class="trust-icon blue">⌖</div><div><strong>محله را بشناس</strong><p>با اطلاعات مکانی، نزدیک‌ترین گزینه‌ها را پیدا کن.</p></div><button id="aboutBtn">درباره‌ی خانه‌نما <span>←</span></button></section>
+  </main>
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark"><svg viewBox="0 0 32 32"><path d="M4 15.2 16 5l12 10.2v12.1a1.7 1.7 0 0 1-1.7 1.7H5.7A1.7 1.7 0 0 1 4 27.3z"/><path d="M12.1 29V18h7.8v11"/></svg></span><span>خانه‌نما<span class="brand-dot">.</span></span></a><span>تجربه‌ی بهتر برای پیدا کردن خانه در ایران</span><span>© ۱۴۰۵ خانه‌نما</span></footer>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-header"><div><span class="modal-kicker">خانه‌نما</span><h2 id="modalTitle">فیلترهای جست‌وجو</h2></div><button class="modal-close" id="modalClose" aria-label="بستن">×</button></div><div class="modal-body" id="modalBody"></div><div class="modal-footer"><button class="text-btn" id="modalReset">پاک کردن همه</button><button class="primary-btn" id="applyFilters">نمایش نتیجه‌ها</button></div></section></div>
+  <div class="toast" id="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
